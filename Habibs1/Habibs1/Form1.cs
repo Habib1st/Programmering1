@@ -19,7 +19,28 @@ namespace Habibs1
 
         private void button1_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("hello man");
+            BackColor = Color.Red;
+            Enabled = true;
+        }
 
+        private void BtnGitt(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            BackColor = Color.Red;
+            BtnRed.Enabled = false;
+            BtnBlue.Enabled = true;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            BackColor= Color.Blue;
+            BtnBlue.Enabled= false;
+            BtnRed.Enabled= true;
         }
     }
 }
