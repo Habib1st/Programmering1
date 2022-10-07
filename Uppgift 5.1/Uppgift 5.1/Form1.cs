@@ -40,13 +40,12 @@ namespace Uppgift_5._1
         private void button1_Click(object sender, EventArgs e)
         {
             int skriv = int.Parse(tbxSkriv.Text);
-            int add1 = skriv + 1;
-            int mult2 = add1 * 2;
-            int sub6 = mult2 - 6;
-            int halv = sub6 / 2;
-            int add3 = halv + 3;
-            int subTal = add3 - skriv;
-            lblSvar.Text = "Du har fått svaret " + subTal.ToString();
+            int ber = (((skriv + 1) * 2 - 6) / 2 + 3) - skriv;
+
+            lblSvar.Text = "Du har fått svaret " +ber.ToString();   
+
+            
+
         }
     }
 }
