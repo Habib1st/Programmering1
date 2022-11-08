@@ -1,4 +1,6 @@
-﻿namespace Kopplingsbräda
+﻿using System.Collections;
+
+namespace Kopplingsbräda
 {
     public class Uppgift
     {
@@ -95,11 +97,15 @@
             //  Skriv din kod här:
 
             
-            if (värde < 3 || värde > 7 && på == true)
+            if (värde < 3 && på == true)
             {
                 tänd = true;
             }
-            else
+            else if ( värde > 7 && på == true )
+            {
+                tänd = true;
+            }
+           else
             {
                 tänd = (false);
             }
@@ -114,10 +120,25 @@
             Färg färg = Färg.Grå;
 
             //  Skriv din kod här:
-
             
-
-
+            
+             switch (pin)
+            {
+                case 6342:
+                    färg = Färg.Grön;
+                    break;
+                case 9972:
+                    färg = Färg.Grön;
+                    break;
+                case 1336:
+                    färg = Färg.Grön;
+                    break;
+                    
+                    default:
+                    färg = Färg.Röd;
+                    break;
+            }   
+            
             //  Rör ej:
             return färg;
         }
@@ -128,9 +149,18 @@
 
             //  Skriv din kod här:
 
-            
-
-
+            if (ett && två == true)
+            {
+                lampaEtt = true;             
+            }
+             if ( ett && två && tre  == true || fyra && tre == true)
+            {
+                lampaTvå = true;
+            }
+             if ( fyra && fem && sex && sju == true)
+            {
+                lampaTre = true;
+            }
            
             //  Rör ej:
             bool[] lampor = { lampaEtt, lampaTvå, lampaTre };
@@ -143,7 +173,8 @@
 
             //  Skriv din kod här:
 
-
+            färg = på == true ?  Färg.Grön : Färg.Röd;
+            
 
             // Rör ej:
             return färg;
