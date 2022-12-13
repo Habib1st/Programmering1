@@ -21,13 +21,18 @@ namespace Uppgift_9._6
 
         private void btnBer_Click(object sender, EventArgs e)
         {
+            btnBer_Click(sender, e, nrSex);
+        }
+
+        private void btnBer_Click(object sender, EventArgs e, int[] nrSex)
+        {
             int hurMångase = 0;
-            int gånger = 1000;
-            nrSex = new int[gånger];
+           
+            nrSex = new int[1000];
 
             for (int i = 0; i < nrSex.Length; i++) 
             {
-                nrSex[i] = tärningar.Next(1,7);
+                nrSex[i] = tärningar.Next(1, 7);
 
 
                 if (nrSex[i] == 6)
