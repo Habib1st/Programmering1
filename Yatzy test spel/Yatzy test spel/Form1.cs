@@ -1,20 +1,35 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
-namespace Yatzy_test_spel
+namespace Yatzy
 {
-    public partial class Form1 : Form
+    class Program
     {
-        public Form1()
+        static void Main(string[] args)
         {
-            InitializeComponent();
+            int[] dice = new int[5];
+            Random random = new Random();
+
+            // Roll the dice
+            for (int i = 0; i < 5; i++)
+            {
+                dice[i] = random.Next(1, 7);
+            }
+
+            // Print the results
+            Console.WriteLine("You rolled: ");
+            for (int i = 0; i < 5; i++)
+            {
+                Console.Write(dice[i] + " ");
+            }
+            Console.WriteLine();
+
+            // Calculate the score
+            int score = 0;
+            for (int i = 0; i < 5; i++)
+            {
+                score += dice[i];
+            }
+            Console.WriteLine("Your score is: " + score);
         }
     }
 }

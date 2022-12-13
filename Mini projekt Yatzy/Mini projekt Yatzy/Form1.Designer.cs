@@ -63,6 +63,7 @@
             this.dice4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.dice4.TabIndex = 5;
             this.dice4.TabStop = false;
+            this.dice4.Click += new System.EventHandler(this.dice4_Click);
             // 
             // dice5
             // 
@@ -73,6 +74,7 @@
             this.dice5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.dice5.TabIndex = 4;
             this.dice5.TabStop = false;
+            this.dice5.Click += new System.EventHandler(this.dice5_Click);
             // 
             // dice3
             // 
@@ -83,6 +85,7 @@
             this.dice3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.dice3.TabIndex = 3;
             this.dice3.TabStop = false;
+            this.dice3.Click += new System.EventHandler(this.dice3_Click);
             // 
             // dice2
             // 
@@ -93,6 +96,7 @@
             this.dice2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.dice2.TabIndex = 2;
             this.dice2.TabStop = false;
+            this.dice2.Click += new System.EventHandler(this.dice2_Click);
             // 
             // dice1
             // 
@@ -103,6 +107,7 @@
             this.dice1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.dice1.TabIndex = 0;
             this.dice1.TabStop = false;
+            this.dice1.Click += new System.EventHandler(this.dice1_Click);
             // 
             // tbxRe
             // 

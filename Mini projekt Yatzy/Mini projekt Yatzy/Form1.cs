@@ -27,6 +27,8 @@ namespace Mini_projekt_Yatzy
             // I bool så får man hjälp av i nästa steg så man använder det
             for (int i = 0; i < tärningar.Length; i++)
             {
+                if (håll[i])
+                    continue;
                 tärningar[i] = dice.Next(1, 7);
             }
             Image[] tär = { diceGUI.d0, diceGUI.d1, diceGUI.d2, diceGUI.d3, diceGUI.d4, diceGUI.d5, diceGUI.d6 };
@@ -79,7 +81,7 @@ namespace Mini_projekt_Yatzy
                 if (yatzy == true)
                 {
                     tbxRe.Text = "Yatzy: " + poäng.ToString();
-                    btnKasta.Enabled = false;
+                   
                 }
                 else if (fyrtal == true)
                 {
@@ -124,6 +126,32 @@ namespace Mini_projekt_Yatzy
 
            
         }
+        // Håll tärningar som du vill ha kvar
 
+        bool[] håll = new bool[5];
+        private void dice1_Click(object sender, EventArgs e)
+        {
+            if (håll[0] == false) håll[0] = true; else { håll[0] = false; }
+        }
+
+        private void dice2_Click(object sender, EventArgs e)
+        {
+            if (håll[1] == false) håll[1] = true; else { håll[1] = false; }
+        }
+
+        private void dice3_Click(object sender, EventArgs e)
+        {
+            if (håll[2] == false) håll[2] = true; else { håll[2] = false; }
+        }
+
+        private void dice4_Click(object sender, EventArgs e)
+        {
+            håll[3] = håll[3] == false;
+        }
+
+        private void dice5_Click(object sender, EventArgs e)
+        {
+            håll[4] = håll[4] == false;
+        }
     }
 }
