@@ -43,18 +43,7 @@ namespace Mini_projekt_Yatzy
                     continue;
                 tärningar[i] = dice.Next(1, 7);
             }
-            int die1 = dice.Next(1, 7);
-            int die2 = dice.Next(1, 7);
-            int die3 = dice.Next(1, 7);
-            int die4 = dice.Next(1, 7);
-            int die5 = dice.Next(1, 7);
-
-            
-            die1Label = die1.ToString();
-            die2Label = die2.ToString();
-            die3Label = die3.ToString();
-            dice4Label = die4.ToString();
-            dice5Label = die5.ToString();
+          
 
             
             antalSlag++;
