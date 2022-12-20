@@ -37,6 +37,8 @@
             this.dice1 = new System.Windows.Forms.PictureBox();
             this.tbxRe = new System.Windows.Forms.TextBox();
             this.lblResultat = new System.Windows.Forms.Label();
+            this.tbxSlag = new System.Windows.Forms.TextBox();
+            this.btnRe = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dice4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dice5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dice3)).BeginInit();
@@ -125,11 +127,30 @@
             this.lblResultat.TabIndex = 8;
             this.lblResultat.Text = "Resultat";
             // 
+            // tbxSlag
+            // 
+            this.tbxSlag.Location = new System.Drawing.Point(142, 123);
+            this.tbxSlag.Name = "tbxSlag";
+            this.tbxSlag.Size = new System.Drawing.Size(309, 26);
+            this.tbxSlag.TabIndex = 9;
+            // 
+            // btnRe
+            // 
+            this.btnRe.Location = new System.Drawing.Point(629, 291);
+            this.btnRe.Name = "btnRe";
+            this.btnRe.Size = new System.Drawing.Size(106, 58);
+            this.btnRe.TabIndex = 10;
+            this.btnRe.Text = "Kör om";
+            this.btnRe.UseVisualStyleBackColor = true;
+            this.btnRe.Click += new System.EventHandler(this.btnRe_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(818, 450);
+            this.Controls.Add(this.btnRe);
+            this.Controls.Add(this.tbxSlag);
             this.Controls.Add(this.lblResultat);
             this.Controls.Add(this.tbxRe);
             this.Controls.Add(this.btnKasta);
@@ -160,6 +181,8 @@
         private System.Windows.Forms.Button btnKasta;
         private System.Windows.Forms.TextBox tbxRe;
         private System.Windows.Forms.Label lblResultat;
+        private System.Windows.Forms.TextBox tbxSlag;
+        private System.Windows.Forms.Button btnRe;
     }
 }
 
