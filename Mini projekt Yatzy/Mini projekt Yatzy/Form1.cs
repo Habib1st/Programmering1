@@ -146,11 +146,7 @@ namespace Mini_projekt_Yatzy
         // Håll tärningar som du vill ha kvar
 
         bool[] håll = new bool[5];
-        private object die1Label;
-        private object die2Label;
-        private string die3Label;
-        private string dice4Label;
-        private object dice5Label;
+       
 
         private void dice1_Click(object sender, EventArgs e)
         {
