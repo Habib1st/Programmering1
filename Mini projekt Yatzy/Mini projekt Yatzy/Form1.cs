@@ -182,7 +182,6 @@ namespace Mini_projekt_Yatzy
         private void btnRe_Click(object sender, EventArgs e)
         {
             Application.Restart();
-            Environment.Exit(0);
         }
     }
 }
