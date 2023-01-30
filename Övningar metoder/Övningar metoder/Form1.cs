@@ -36,6 +36,8 @@ namespace Övningar_metoder
                     return t1 * t2;
                     case '-':   
                         return t1 - t2;
+                case '/':
+                    return (t1 + t2)*2;
                 default: return 0;
                     
             }
@@ -82,6 +84,14 @@ private void btnMulti_Click(object sender, EventArgs e)
             int t1 = hämtaut()[0];
             int t2 = hämtaut()[1];
             int resm = Beräkna(t1, t2, '-');
+            SkrivUt(resm);
+        }
+
+        private void btnAddOchMul_Click(object sender, EventArgs e)
+        {
+            int t1 = hämtaut()[0];
+            int t2 = hämtaut()[1];
+            int resm = Beräkna(t1, t2, '/');
             SkrivUt(resm);
         }
     }

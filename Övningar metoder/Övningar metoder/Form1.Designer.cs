@@ -36,6 +36,7 @@
             this.btnAd = new System.Windows.Forms.Button();
             this.btnMulti = new System.Windows.Forms.Button();
             this.btn_Sub = new System.Windows.Forms.Button();
+            this.btnAddOchMul = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -110,11 +111,22 @@
             this.btn_Sub.UseVisualStyleBackColor = true;
             this.btn_Sub.Click += new System.EventHandler(this.btn_Sub_Click);
             // 
+            // btnAddOchMul
+            // 
+            this.btnAddOchMul.Location = new System.Drawing.Point(275, 304);
+            this.btnAddOchMul.Name = "btnAddOchMul";
+            this.btnAddOchMul.Size = new System.Drawing.Size(258, 92);
+            this.btnAddOchMul.TabIndex = 8;
+            this.btnAddOchMul.Text = "Addera och dubbla";
+            this.btnAddOchMul.UseVisualStyleBackColor = true;
+            this.btnAddOchMul.Click += new System.EventHandler(this.btnAddOchMul_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnAddOchMul);
             this.Controls.Add(this.btn_Sub);
             this.Controls.Add(this.btnMulti);
             this.Controls.Add(this.btnAd);
@@ -141,6 +153,7 @@
         private System.Windows.Forms.Button btnAd;
         private System.Windows.Forms.Button btnMulti;
         private System.Windows.Forms.Button btn_Sub;
+        private System.Windows.Forms.Button btnAddOchMul;
     }
 }
 
