@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Net.NetworkInformation;
 using System.Windows.Forms;
 
 namespace Bankautomat
@@ -11,7 +12,7 @@ namespace Bankautomat
         string inmatat = "";
 
         //  Metoder
-        public string HämtaInmatat(string inmatat)
+        public string HämtaInmatat()
         {
             return inmatat;  
         }
@@ -19,7 +20,12 @@ namespace Bankautomat
         {
             if (värde < 0)
             {
-                inmatat = inmatat.Remove(inmatat.Length - 1);
+                if (inmatat.Length >0)
+                {
+                
+                    inmatat = inmatat.Remove(inmatat.Length - 1);
+
+                }
 
             }
 
@@ -27,13 +33,46 @@ namespace Bankautomat
             {
                 inmatat += värde;
             }
-            else
-            {
-                
-                
-            }
+           
 
 
         }
+        
+         private bool KontrolleraPinkod(string pin)
+        {
+            switch (pin)
+            {
+                case "1234":
+                    return true;
+                case "9876":
+                    return true;
+                case "1337":
+                    return true;
+                    default: 
+                  return false;
+            }
+                
+        }
+
+        public bool Bekräfta(Läge läge, out string msg )
+        {
+           
+
+            if (KontrolleraPinkod(inmatat))
+            {
+                inmatat ="";
+                msg = "PIN OK";
+                return true;
+            }
+            else
+            {
+                msg = "FELAKIG PIN";
+                return false;
+            }
+
+            msg = "";
+            return true;
+        }
+
     }
 }
