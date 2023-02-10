@@ -132,6 +132,7 @@ namespace Bankautomat
             if(saldo > värde)
             {
                 saldo -=värde;
+                return true;
             }
             else
             {
