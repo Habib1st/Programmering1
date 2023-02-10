@@ -33,8 +33,19 @@ namespace Bankautomat
             {
                 inmatat += värde;
             }
-           
 
+            else if(läge == Läge.Inloggning)
+            {
+                if (inmatat == "")
+                {
+
+                }
+                else
+                {
+                    inmatat +=värde;
+                }
+            }
+         
 
         }
         
@@ -56,23 +67,76 @@ namespace Bankautomat
 
         public bool Bekräfta(Läge läge, out string msg )
         {
-           
-
-            if (KontrolleraPinkod(inmatat))
+            if (inmatat == "")
             {
-                inmatat ="";
-                msg = "PIN OK";
+                msg = "";
                 return true;
+            }
+
+            else if (läge == Läge.Insättning)
+            {
+                Insättning(int.Parse(inmatat));
+                msg = "Insättning: ****kr";
+                inmatat = "";
+                return true;
+
+            }
+            else if (läge == Läge.Inloggning)
+            {
+                 if (KontrolleraPinkod(inmatat))
+                
+                {
+                    inmatat = "";
+                    msg = "PIN OK";
+                    return true;
+                }
+                else
+                {
+                    msg = "FELAKIG PIN";
+                    return false;
+                
+                }
+               
+            }
+            else if (läge == Läge.Uttag)
+            {
+                Uttag(int.Parse(inmatat));
+                if (true)
+                {
+                    msg = "Insättning: ****kr";
+                    inmatat = "";
+                    return true;
+                }
+                else
+                {
+                    msg = "Otillräckligt saldo";
+                    inmatat = "";
+                    return false;
+                }
             }
             else
             {
-                msg = "FELAKIG PIN";
+                msg = "";
+                return true;
+            }
+          
+           
+        }
+        
+        private void Insättning(int värde)
+        {
+            saldo += värde;
+        }
+        private bool Uttag(int värde)
+        {
+            if(saldo > värde)
+            {
+                saldo -=värde;
+            }
+            else
+            {
                 return false;
             }
-
-            msg = "";
-            return true;
-        }
-
+        }    
     }
 }
