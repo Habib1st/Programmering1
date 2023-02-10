@@ -6,12 +6,12 @@ namespace Bankautomat
 {
     public class BANKappLogic
     {
-        //  Medlemsvariabler
+       
 
         int saldo = 0;
         string inmatat = "";
 
-        //  Metoder
+       
         public string HämtaInmatat()
         {
             return inmatat;  
@@ -36,14 +36,7 @@ namespace Bankautomat
 
             else if(läge == Läge.Inloggning)
             {
-                if (inmatat == "")
-                {
-
-                }
-                else
-                {
-                    inmatat +=värde;
-                }
+                inmatat += värde;
             }
          
 
@@ -56,6 +49,8 @@ namespace Bankautomat
                 case "1234":
                     return true;
                 case "9876":
+                    return true;
+                case "4548":
                     return true;
                 case "1337":
                     return true;
@@ -100,8 +95,8 @@ namespace Bankautomat
             }
             else if (läge == Läge.Uttag)
             {
-                Uttag(int.Parse(inmatat));
-                if (true)
+                
+                if (Uttag(int.Parse(inmatat)))
                 {
                     msg = "Insättning: ****kr";
                     inmatat = "";
@@ -138,6 +133,30 @@ namespace Bankautomat
             {
                 return false;
             }
-        }    
+        }
+        public string VisaSaldo(Läge läge)
+        {
+            if(läge == Läge.Inloggning)
+            {
+                return "Saldo: ****kr";
+            }
+            else
+            {
+                return "";
+            }
+        }
+        public bool Avbryt()
+        {
+            if( (MessageBox.Show("Är du säker?", "Avsluta", MessageBoxButtons.YesNo) == DialogResult.Yes))
+            {
+                saldo = 0;
+                inmatat = "";
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
     }
 }
