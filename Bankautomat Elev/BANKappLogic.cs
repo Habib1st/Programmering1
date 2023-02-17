@@ -34,9 +34,18 @@ namespace Bankautomat
                 inmatat += värde;
             }
 
-            else if(läge == Läge.Inloggning)
+
+          
+            else if(läge != Läge.Inloggning)
             {
-                inmatat += värde;
+                if (inmatat == "" && värde == 0)
+                {
+                    
+                }
+                else
+                {
+                    inmatat += värde;
+                } 
             }
          
 
@@ -54,6 +63,8 @@ namespace Bankautomat
                     return true;
                 case "1337":
                     return true;
+                case "4892":
+                    return true;
                     default: 
                   return false;
             }
@@ -62,60 +73,69 @@ namespace Bankautomat
 
         public bool Bekräfta(Läge läge, out string msg )
         {
-            if (inmatat == "")
+            if (läge == Läge.Inloggning)
             {
-                msg = "";
-                return true;
-            }
-
-            else if (läge == Läge.Insättning)
-            {
-                Insättning(int.Parse(inmatat));
-                msg = "Insättning: ****kr";
-                inmatat = "";
-                return true;
-
-            }
-            else if (läge == Läge.Inloggning)
-            {
-                 if (KontrolleraPinkod(inmatat))
-                
+                if (inmatat.Length == 4)
                 {
-                    inmatat = "";
-                    msg = "PIN OK";
-                    return true;
+                    KontrolleraPinkod(inmatat);
+                    if (true)
+                    {
+                        inmatat = "";
+                        msg = "PIN OK";
+                        return true;
+                    }
+                    else
+                    {
+                        inmatat = "";
+                        msg = "PIN FELAKTIG";
+                        return false;
+                    }
                 }
                 else
                 {
-                    msg = "FELAKIG PIN";
-                    return false;
-                
-                }
-               
-            }
-            else if (läge == Läge.Uttag)
-            {
-                
-                if (Uttag(int.Parse(inmatat)))
-                {
-                    msg = "Insättning: ****kr";
                     inmatat = "";
-                    return true;
-                }
-                else
-                {
-                    msg = "Otillräckligt saldo";
-                    inmatat = "";
+                    msg = "";
                     return false;
                 }
             }
             else
             {
-                msg = "";
-                return true;
+                if (inmatat == "")
+                {
+                    msg = "";
+                    return true;
+                }
+                else if (läge == Läge.Insättning)
+                {
+                    Insättning(int.Parse(inmatat));
+                    msg = "Insättning: " + inmatat + "kr";
+                    inmatat = "";
+                    return true;
+                }
+                else if (läge == Läge.Uttag)
+                {
+                    Uttag(int.Parse(inmatat));
+                    if (true)
+                    {
+                        msg = "Uttag; " + inmatat + "kr";
+                        inmatat = "";
+                        return true;
+                    }
+                    else
+                    {
+                        msg = "Otillräckligt saldo";
+                        inmatat = "";
+                        return false;
+                    }
+                }
+                else
+                {
+                    msg = "";
+                    return true;
+                }
             }
-          
-           
+            
+   
         }
         
         private void Insättning(int värde)
@@ -156,6 +176,7 @@ namespace Bankautomat
             else
             {
                 return false;
+
             }
         }
     }
