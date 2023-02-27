@@ -20,7 +20,7 @@ namespace Bankautomat
         {
             if (värde < 0)
             {
-                if (inmatat.Length >0)
+                if (inmatat != "")
                 {
                 
                     inmatat = inmatat.Remove(inmatat.Length - 1);
@@ -29,9 +29,15 @@ namespace Bankautomat
 
             }
 
-            else if (läge == Läge.Inloggning && inmatat.Length < 4 )
+            else if (läge == Läge.Inloggning)
             {
-                inmatat += värde;
+                if(inmatat.Length < 4)
+                {
+
+                     inmatat += värde;
+                
+                }
+
             }
 
 
@@ -77,24 +83,24 @@ namespace Bankautomat
             {
                 if (inmatat.Length == 4)
                 {
-                    KontrolleraPinkod(inmatat);
-                    if (true)
+                  
+                    if (KontrolleraPinkod(inmatat))
                     {
                         inmatat = "";
-                        msg = "PIN OK";
+                        msg = "PIN ok";
                         return true;
                     }
                     else
                     {
                         inmatat = "";
-                        msg = "PIN FELAKTIG";
+                        msg = "Felaktig PIN";
                         return false;
                     }
                 }
                 else
                 {
                     inmatat = "";
-                    msg = "";
+                    msg = "Felaktig PIN";
                     return false;
                 }
             }
@@ -114,10 +120,10 @@ namespace Bankautomat
                 }
                 else if (läge == Läge.Uttag)
                 {
-                    Uttag(int.Parse(inmatat));
-                    if (true)
+                   
+                    if (Uttag(int.Parse(inmatat)))
                     {
-                        msg = "Uttag; " + inmatat + "kr";
+                        msg = "Uttag: " + inmatat + "kr";
                         inmatat = "";
                         return true;
                     }
@@ -144,7 +150,7 @@ namespace Bankautomat
         }
         private bool Uttag(int värde)
         {
-            if(saldo > värde)
+            if(saldo >= värde)
             {
                 saldo -=värde;
                 return true;
@@ -156,9 +162,9 @@ namespace Bankautomat
         }
         public string VisaSaldo(Läge läge)
         {
-            if(läge == Läge.Inloggning)
+            if(läge != Läge.Inloggning)
             {
-                return "Saldo: ****kr";
+                return "Saldo: " + saldo + "kr";
             }
             else
             {
