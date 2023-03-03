@@ -23,7 +23,6 @@ namespace Bankautomat
 
 
 
-            /* TA BORT DENNA RAD NÄR DU SKA BÖRJA MED SAMLINGAR
             
             switch (metod)
             {
@@ -47,7 +46,6 @@ namespace Bankautomat
                     break;
             }
             
-             */ // TA ÄVEN BORT DENNA RAD NÄR DU BÖRJAR MED SAMLINGAR
         }
 
 

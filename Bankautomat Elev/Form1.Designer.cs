@@ -122,7 +122,7 @@
             this.lblNamn.Name = "lblNamn";
             this.lblNamn.Size = new System.Drawing.Size(180, 27);
             this.lblNamn.TabIndex = 0;
-            this.lblNamn.Text = "BANKapp v0.1";
+            this.lblNamn.Text = "BANKapp v0.2";
             this.lblNamn.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // btn1

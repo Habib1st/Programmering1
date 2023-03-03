@@ -1,9 +1,13 @@
 ﻿using System.Collections.Generic;
+using System.Drawing.Text;
 using System.Net.NetworkInformation;
+using System.Security.Cryptography.X509Certificates;
 using System.Windows.Forms;
 
 namespace Bankautomat
+        
 {
+    
     public class BANKappLogic
     {
        
@@ -116,6 +120,7 @@ namespace Bankautomat
                     Insättning(int.Parse(inmatat));
                     msg = "Insättning: " + inmatat + "kr";
                     inmatat = "";
+                    SparaInfo(msg);
                     return true;
                 }
                 else if (läge == Läge.Uttag)
@@ -125,6 +130,7 @@ namespace Bankautomat
                     {
                         msg = "Uttag: " + inmatat + "kr";
                         inmatat = "";
+                        SparaInfo(msg);
                         return true;
                     }
                     else
@@ -139,10 +145,12 @@ namespace Bankautomat
                     msg = "";
                     return true;
                 }
+
+                
             }
             
    
-        }
+        }   
         
         private void Insättning(int värde)
         {
@@ -184,6 +192,58 @@ namespace Bankautomat
                 return false;
 
             }
+            
+          
+
+            
+
         }
+
+        List<string> historikInfo = new List<string>();
+
+
+        public int HämtaHistorikInfoCount()
+        {
+            return historikInfo.Count;
+        }
+
+        private void SparaInfo(string info)
+        {
+            historikInfo.Add(info);
+        }
+
+        public void VisaHistorik(ListBox lbHistorik)
+        {
+            lbHistorik.Items.Clear();
+            
+            for (int i = 0; i < historikInfo.Count; i++) 
+            {
+                lbHistorik.Items.Add(historikInfo[i]);
+            }
+
+        }
+        public void TaBortEnstaka(ListBox lbHistorik)
+        {
+            if(lbHistorik.SelectedIndices.Count != 0)
+            {
+               int index = lbHistorik.SelectedIndex;
+               historikInfo.RemoveAt(index);
+            }
+            VisaHistorik(lbHistorik);
+        }
+
+        public void TaBortAlla(ListBox lbHistorik)
+        {
+            historikInfo= new List<string>();
+            VisaHistorik(lbHistorik);
+        }
+
+        public void RensaListbox(ListBox lbHistorik)
+        {
+            lbHistorik.Items.Clear();
+        }
+
+
     }
 }
+
