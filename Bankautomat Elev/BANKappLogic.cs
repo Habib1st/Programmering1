@@ -15,11 +15,17 @@ namespace Bankautomat
         int saldo = 0;
         string inmatat = "";
 
-       
+        /*Den här metoden, "hämtainmatat", är ansvarig för att hämta den inmatade strängen och göra den tillgänglig 
+        för användning och läsning i andra delar av programmet.*/
         public string HämtaInmatat()
         {
             return inmatat;  
         }
+
+        /* Denna kod beskriver en metod i C# som är ansvarig för att hantera sifferknappar på appen. 
+        Metoden har två parametrar, varav den första representerar vilket läge användaren befinner sig i, 
+        och den andra representerar värdet som användaren har tryckt på. Metoden kan hantera olika användaråtgärder, 
+        såsom att lägga till eller ta bort siffror, avbryta eller godkänna en åtgärd genom att trycka på lämpliga knappar. */
         public void Inmatning(Läge läge , int värde)
         {
             if (värde < 0)
@@ -60,8 +66,10 @@ namespace Bankautomat
          
 
         }
-        
-         private bool KontrolleraPinkod(string pin)
+
+        /* Den här koden har en metod som heter "KontrolleraPinkod" och dess syfte är att kontrollera om en given PIN-kod är korrekt.
+        Om koden är korrekt kommer metoden att returnera "true", annars kommer den att returnera "false" */
+        private bool KontrolleraPinkod(string pin)
         {
             switch (pin)
             {
@@ -80,7 +88,10 @@ namespace Bankautomat
             }
                 
         }
-
+        /* Den här metoden ska se till om det är true eller false när man trycker på den gröna knappen.
+        Exempelvis om man skriver in pin kod och bekräftar så kommer den att se om koden är true eller false och
+        kommer då att skcika ett meddelande. Det finns också två parametrar parametern Läge som visar vilket läge man är i
+        och msg. */
         public bool Bekräfta(Läge läge, out string msg )
         {
             if (läge == Läge.Inloggning)
@@ -151,11 +162,13 @@ namespace Bankautomat
             
    
         }   
-        
+        // Den här metoden tar en ett värde och den läger den i saldot som kan sedan visas genom att trycka på läget saldo.
+         
         private void Insättning(int värde)
         {
             saldo += värde;
         }
+        // Den här tar ut pengar från saldot om den är tillräcklig
         private bool Uttag(int värde)
         {
             if(saldo >= värde)
@@ -168,6 +181,7 @@ namespace Bankautomat
                 return false;
             }
         }
+        // Den här metoden visar saldot om man är i inloggat läge
         public string VisaSaldo(Läge läge)
         {
             if(läge != Läge.Inloggning)
@@ -179,6 +193,7 @@ namespace Bankautomat
                 return "";
             }
         }
+        // Den här metoden är för att logga ut om man trycker på den röda knappen
         public bool Avbryt()
         {
             if( (MessageBox.Show("Är du säker?", "Avsluta", MessageBoxButtons.YesNo) == DialogResult.Yes))
@@ -201,17 +216,19 @@ namespace Bankautomat
 
         List<string> historikInfo = new List<string>();
 
-
+        // Denna metod retunerar hur många saker som finns i historikinfot
         public int HämtaHistorikInfoCount()
         {
             return historikInfo.Count;
         }
-
+       
+        // Denna metoden tar in en sträng, alltså det man vill spara, och lägger den i historiken.
         private void SparaInfo(string info)
         {
             historikInfo.Add(info);
         }
 
+        // Den här metoden som man ser på namnet "VisaHistorik" visar och skriver ut historiken
         public void VisaHistorik(ListBox lbHistorik)
         {
             lbHistorik.Items.Clear();
@@ -222,6 +239,8 @@ namespace Bankautomat
             }
 
         }
+        
+        // Den här metoden tar bort det som är markerat historiken lbHistorik 
         public void TaBortEnstaka(ListBox lbHistorik)
         {
             if(lbHistorik.SelectedIndices.Count != 0)
@@ -232,12 +251,14 @@ namespace Bankautomat
             VisaHistorik(lbHistorik);
         }
 
+        // Denna metod tar bort allt som är i historiken 
         public void TaBortAlla(ListBox lbHistorik)
         {
             historikInfo= new List<string>();
             VisaHistorik(lbHistorik);
         }
 
+        // Denna metoden låter andra delar av programmet rensa listboxen 
         public void RensaListbox(ListBox lbHistorik)
         {
             lbHistorik.Items.Clear();
