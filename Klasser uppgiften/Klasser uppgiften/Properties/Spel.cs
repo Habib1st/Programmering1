@@ -35,7 +35,7 @@ namespace Klasser_uppgiften.Properties
 
         public override string ToString()
         {
-            string str = "Spelet heter " + namnPåSpelet + " och är av typen" + speltyp + ". Den publicerades år " + publiceringsår;
+            string str = "Spelet heter " + namnPåSpelet + " och är av typen " + speltyp + ". Den publicerades år " + publiceringsår;
 
             return str;
         }

@@ -20,29 +20,54 @@ namespace Klasser_uppgiften
 
         public void LäggIRegister1()
         {
-             Spel spel = new Spel(tbxNamn.Text, tbxTyp.Text, int.Parse(tbxÅr.Text));
+            if (string.IsNullOrEmpty(tbxÅr.Text))
+            {
+                MessageBox.Show("Fyll i publiceringsår");
+                return;
+            }
+
+            Spel spel = new Spel(tbxNamn.Text, tbxTyp.Text, int.Parse(tbxÅr.Text));
              lstbxRegister.Items.Add(spel.ToString());  
         }
 
         public void LäggIRegister2()
         {
-         
-                Spel spel = new Spel(tbxNamn.Text, tbxTyp.Text, int.Parse(tbxÅr.Text));
-                string[] listan = new string[] { spel.NamnPåSpel, spel.Speltyp, spel.Publiceringsår.ToString() };
-                ListViewItem listvie = new ListViewItem(listan);
-                listView1.Items.Add(listvie);
+            if (string.IsNullOrEmpty(tbxÅr.Text))
+            {
+                MessageBox.Show("Fyll i publiceringsår");
+                return;
+            }
             
+            Spel spel = new Spel(tbxNamn.Text, tbxTyp.Text, int.Parse(tbxÅr.Text));
+            string[] listan = new string[] { spel.NamnPåSpel, spel.Speltyp, spel.Publiceringsår.ToString() };
+            ListViewItem listvie = new ListViewItem(listan);
+            listView1.Items.Add(listvie);
+        }
+
+        public void Upptadera1()
+        {
+            lstbxRegister.Items.Clear();
            
+            LäggIRegister1();
+        }
+
+        public void Upptadera2()
+        {
+          
+            listView1.Items.Clear();
+            LäggIRegister2();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-                LäggIRegister1();
+            LäggIRegister1();
+            Upptadera1();
         }
 
         private void btnListv_Click(object sender, EventArgs e)
         {
             LäggIRegister2();
+            Upptadera2();
         }
     }
 }
