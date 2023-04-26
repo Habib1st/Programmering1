@@ -20,14 +20,12 @@ namespace Klasser_uppgiften
 
         public void LäggIRegister1()
         {
-            if (string.IsNullOrEmpty(tbxÅr.Text))
+            if (!string.IsNullOrEmpty(tbxÅr.Text))
             {
-                MessageBox.Show("Fyll i publiceringsår");
-                return;
+                Spel spel = new Spel(tbxNamn.Text, tbxTyp.Text, int.Parse(tbxÅr.Text));
+                lstbxRegister.Items.Add(spel.ToString());
             }
-
-            Spel spel = new Spel(tbxNamn.Text, tbxTyp.Text, int.Parse(tbxÅr.Text));
-             lstbxRegister.Items.Add(spel.ToString());  
+            else MessageBox.Show("Fyll i publiceringsår");
         }
 
         public void LäggIRegister2()
@@ -48,26 +46,30 @@ namespace Klasser_uppgiften
         {
             lstbxRegister.Items.Clear();
            
-            LäggIRegister1();
+            
         }
 
         public void Upptadera2()
         {
           
             listView1.Items.Clear();
-            LäggIRegister2();
         }
 
         private void btnRegister_Click(object sender, EventArgs e)
         {
-            LäggIRegister1();
             Upptadera1();
+            LäggIRegister1();
         }
 
         private void btnListv_Click(object sender, EventArgs e)
         {
             LäggIRegister2();
             Upptadera2();
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
