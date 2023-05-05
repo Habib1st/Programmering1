@@ -36,7 +36,7 @@
             // 
             // btnSkicka
             // 
-            this.btnSkicka.Location = new System.Drawing.Point(200, 289);
+            this.btnSkicka.Location = new System.Drawing.Point(332, 289);
             this.btnSkicka.Name = "btnSkicka";
             this.btnSkicka.Size = new System.Drawing.Size(100, 43);
             this.btnSkicka.TabIndex = 0;
@@ -52,10 +52,11 @@
             this.btnDekrypt.TabIndex = 1;
             this.btnDekrypt.Text = "Dekryptera\r\n\r\n";
             this.btnDekrypt.UseVisualStyleBackColor = true;
+            this.btnDekrypt.Click += new System.EventHandler(this.btnDekrypt_Click);
             // 
             // tbxKryptering
             // 
-            this.tbxKryptering.Location = new System.Drawing.Point(200, 57);
+            this.tbxKryptering.Location = new System.Drawing.Point(332, 57);
             this.tbxKryptering.Multiline = true;
             this.tbxKryptering.Name = "tbxKryptering";
             this.tbxKryptering.Size = new System.Drawing.Size(100, 226);
