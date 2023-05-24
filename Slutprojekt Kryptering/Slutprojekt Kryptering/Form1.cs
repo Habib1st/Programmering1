@@ -17,108 +17,238 @@ namespace Slutprojekt_Kryptering
         {
             InitializeComponent();
         }
+
+        public char Kryptering7(char detSkrivna)
+        {
+            char svaret ;
+            char varjeChar = detSkrivna;
+
+        
+            if (Char.IsLetter(varjeChar) && varjeChar >= 65 && varjeChar <= 90)
+            {
+                char detEnkrypterade = (char)((int)varjeChar + 7);
+                if (detEnkrypterade > 'Z')
+                {
+                    detEnkrypterade = (char)(((int)varjeChar - 19));
+                    Console.WriteLine(detEnkrypterade);
+
+
+                }
+                svaret = detEnkrypterade;
+
+            }
+
+            else if (Char.IsLetter(varjeChar) && varjeChar >= 97 && varjeChar <= 122)
+            {
+                char detEnkrypterade = (char)(((int)varjeChar + 7));
+                if (detEnkrypterade > 'z')
+                {
+                    detEnkrypterade = (char)(((int)varjeChar - 19));
+                    Console.WriteLine(detEnkrypterade);
+
+                }
+                svaret = detEnkrypterade;
+            }
+
+
+
+            else
+            {
+                svaret = varjeChar;
+            }
+            
+
+            return svaret;
+
+        }
+
+        public char DeKryptering7(char detSkrivna)
+        {
+            char svaret;
+            char varjeChar = detSkrivna;
+            
+            if (Char.IsLetter(varjeChar) && varjeChar >= 65 && varjeChar <= 90)
+            {
+                char detEnkrypterade = (char)((int)varjeChar - 7);
+                if (detEnkrypterade < 'A')
+                {
+                    detEnkrypterade = (char)(((int)varjeChar + 19));
+                    Console.WriteLine(detEnkrypterade);
+
+
+                }
+                svaret = detEnkrypterade;
+
+            }
+
+            else if (Char.IsLetter(varjeChar) && varjeChar >= 97 && varjeChar <= 122)
+            {
+                char detEnkrypterade = (char)(((int)varjeChar - 7));
+                if (detEnkrypterade < 'a')
+                {
+                    detEnkrypterade = (char)(((int)varjeChar + 19));
+                    Console.WriteLine(detEnkrypterade);
+
+                }
+                svaret = detEnkrypterade;
+            }
+
+
+
+            else
+            {
+                svaret = varjeChar;
+            }
+            
+
+            return svaret;
+
+        }
+        public char Kryptering13(char detSkrivna)
+        {
+            char svaret;
+            char varjeChar = detSkrivna;
+            
+            if (Char.IsLetter(varjeChar) && varjeChar >= 65 && varjeChar <= 90)
+            {
+                char detEnkrypterade = (char)(((int)varjeChar + 13));
+                if (detEnkrypterade > 'Z')
+                {
+                    detEnkrypterade = (char)(((int)varjeChar - 13));
+                    Console.WriteLine(detEnkrypterade);
+
+
+                }
+                svaret = detEnkrypterade;
+
+            }
+
+            else if (Char.IsLetter(varjeChar) && varjeChar >= 97 && varjeChar <= 122)
+            {
+                char detEnkrypterade = (char)(((int)varjeChar + 13));
+                if (detEnkrypterade > 'z')
+                {
+                    detEnkrypterade = (char)(((int)varjeChar - 13));
+                    Console.WriteLine(detEnkrypterade);
+
+                }
+                svaret = detEnkrypterade;
+            }
+
+
+
+            else
+            {
+                svaret = varjeChar;
+            }
+            
+
+            return svaret;
+
+        }
+
+        public char Dekryptering13(char detSkrivna)
+        {
+            char svaret;
+            char varjeChar = detSkrivna;
+
+            
+            if (Char.IsLetter(varjeChar) && varjeChar >= 65 && varjeChar <= 90)
+            {
+                char detEnkrypterade = (char)(((int)varjeChar - 13));
+                if (detEnkrypterade < 'A')
+                {
+                    detEnkrypterade = (char)(((int)varjeChar + 13));
+                    Console.WriteLine(detEnkrypterade);
+
+
+                }
+                svaret = detEnkrypterade;
+
+            }
+
+            else if (Char.IsLetter(varjeChar) && varjeChar >= 97 && varjeChar <= 122)
+            {
+                char detEnkrypterade = (char)(((int)varjeChar - 13));
+                if (detEnkrypterade < 'a')
+                {
+                    detEnkrypterade = (char)(((int)varjeChar + 13));
+                    Console.WriteLine(detEnkrypterade);
+
+                }
+                svaret = detEnkrypterade;
+            }
+
+
+
+            else
+            {
+                svaret = varjeChar;
+            }
+            
+
+            return svaret;
+
+        }
+
+
         
 
-        public string Kryptering3(string detSkrivna)
-        {
-            string svaret = "";
-
-            foreach (char nummer in detSkrivna)
-            {
-                if (Char.IsLetter(nummer) && nummer >= 65 && nummer <= 90 )
-                {
-                    char detEnkrypterade = (char)(((int)nummer + 3));
-                    if (detEnkrypterade > 'Z')
-                    {
-                        detEnkrypterade = (char)(((int)nummer - 23));
-                        Console.WriteLine(detEnkrypterade);
-                       
-
-                    }
-                    svaret += detEnkrypterade;
-
-                }
-
-                else if (Char.IsLetter(nummer) && nummer >= 97 && nummer <= 122)
-                {
-                    char detEnkrypterade = (char)(((int)nummer + 3));
-                    if (detEnkrypterade > 'z')
-                    {
-                        detEnkrypterade = (char)(((int)nummer - 23));
-                        Console.WriteLine(detEnkrypterade);
-
-                    }
-                    svaret += detEnkrypterade;
-                }
-
-                
-               
-                else
-                {
-                    svaret += nummer;
-                }
-            }
-
-            return svaret;
-
-        }
-
-        public string Dekrypt3 (string detSkrivna)
-        {
-            string svaret = "";
-
-            foreach (char nummer in detSkrivna)
-            {
-                if (Char.IsLetter(nummer) && nummer >= 65 && nummer <= 90)
-                {
-                    char detEnkrypterade = (char)(((int)nummer - 3));
-                    if (detEnkrypterade < 'A')
-                    {
-                        detEnkrypterade = (char)(((int)nummer + 23));
-                        Console.WriteLine(detEnkrypterade);
-
-
-                    }
-                    svaret += detEnkrypterade;
-
-                }
-
-                else if (Char.IsLetter(nummer) && nummer >= 97 && nummer <= 122)
-                {
-                    char detEnkrypterade = (char)(((int)nummer - 3));
-                    if (detEnkrypterade < 'a')
-                    {
-                        detEnkrypterade = (char)(((int)nummer + 23));
-                        Console.WriteLine(detEnkrypterade);
-
-                    }
-                    svaret += detEnkrypterade;
-                }
-
-
-
-                else
-                {
-                    svaret += nummer;
-                }
-            }
-
-            return svaret;
-        }
-        private void btnSkicka_Click(object sender, EventArgs e)
-        {
-            btnDekrypt.Enabled = true;
-            string kryptera = tbxKryptering.Text;
-            tbxDekrypt.Text = Kryptering3(kryptera);
-            
-        }
 
 
         private void btnDekrypt_Click(object sender, EventArgs e)
         {
-            btnDekrypt.Enabled = false;
-            string dekrypt = tbxDekrypt.Text;
-            tbxDekrypt.Text = Dekrypt3(dekrypt);
+
+            string dekryptera = tbxDekrypt.Text;
+            if (dekryptera != "")
+            {
+
+                string svaret = "";
+                for (int i = 0; i < dekryptera.Length; i++)
+                {
+                    if ((i / 5) % 2 != 0)
+                    {
+                        svaret += Dekryptering13(dekryptera[i]);
+
+
+                    }
+                    else
+                    {
+                        svaret += DeKryptering7(dekryptera[i]);
+                    }
+
+                }
+                tbxKryptering.Text = svaret;
+                btnDekrypt.Enabled = false;
+                btnRot7o13.Enabled = true;
+                tbxDekrypt.Clear();
+            }
+        }
+
+        private void rot7o13_Click(object sender, EventArgs e)
+        {
+            string kryptera = tbxKryptering.Text;
+            if (kryptera != "")
+            {
+                
+                string svaret = "";
+                for (int i = 0; i < kryptera.Length; i++)
+                {
+                    if((i/5)%2 != 0)
+                    {
+                        svaret += Kryptering13(kryptera[i]);
+                    }
+                    else
+                    {
+                        svaret += Kryptering7(kryptera[i]);
+                    }
+               
+                }
+                tbxDekrypt.Text = svaret;
+                btnRot7o13.Enabled = false;
+                btnDekrypt.Enabled = true;
+                tbxKryptering.Clear();
+            }
         }
     }
 }
