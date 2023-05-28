@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.TextBox;
 
 namespace Slutprojekt_Kryptering
 {
@@ -18,6 +19,10 @@ namespace Slutprojekt_Kryptering
             InitializeComponent();
         }
 
+        public void KrypSto(char addera, char varjeChar, char svaret)
+        {
+           
+        }
         public char Kryptering7(char detSkrivna)
         {
             char svaret ;
@@ -26,6 +31,7 @@ namespace Slutprojekt_Kryptering
         
             if (Char.IsLetter(varjeChar) && varjeChar >= 65 && varjeChar <= 90)
             {
+                
                 char detEnkrypterade = (char)((int)varjeChar + 7);
                 if (detEnkrypterade > 'Z')
                 {
